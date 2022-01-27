@@ -100,7 +100,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.redhat.eagleeye.ClickEventCount</mainClass>
+                                    <mainClass>com.redhat.eagleeye.IpProfiler</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

@@ -17,40 +17,35 @@
 
 package com.redhat.eagleeye.records;
 
+import org.apache.flink.api.common.serialization.DeserializationSchema;
+import org.apache.flink.api.common.typeinfo.TypeInformation;
 
-import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
-
-import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.apache.kafka.clients.producer.ProducerRecord;
-
-import javax.annotation.Nullable;
+import java.io.IOException;
 
 /**
- * A Kafka {@link KafkaSerializationSchema} to serialize {@link ClickEventStatistics}s as JSON.
+ * A Kafka {@link DeserializationSchema} to deserialize {@link NetworkEvent}s from JSON.
  *
  */
-public class ClickEventStatisticsSerializationSchema implements KafkaSerializationSchema<ClickEventStatistics> {
+public class NetworkEventDeserializationSchema implements DeserializationSchema<NetworkEvent> {
+
+	private static final long serialVersionUID = 1L;
 
 	private static final ObjectMapper objectMapper = new ObjectMapper();
-	private String topic;
 
-	public ClickEventStatisticsSerializationSchema(){
-	}
-
-	public ClickEventStatisticsSerializationSchema(String topic) {
-		this.topic = topic;
+	@Override
+	public NetworkEvent deserialize(byte[] message) throws IOException {
+		return objectMapper.readValue(message, NetworkEvent.class);
 	}
 
 	@Override
-	public ProducerRecord<byte[], byte[]> serialize(
-			final ClickEventStatistics message, @Nullable final Long timestamp) {
-		try {
-			//if topic is null, default topic will be used
-			return new ProducerRecord<>(topic, objectMapper.writeValueAsBytes(message));
-		} catch (JsonProcessingException e) {
-			throw new IllegalArgumentException("Could not serialize record: " + message, e);
-		}
+	public boolean isEndOfStream(NetworkEvent nextElement) {
+		return false;
+	}
+
+	@Override
+	public TypeInformation<NetworkEvent> getProducedType() {
+		return TypeInformation.of(NetworkEvent.class);
 	}
 }

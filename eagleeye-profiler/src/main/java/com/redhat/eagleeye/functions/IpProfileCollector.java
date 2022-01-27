@@ -18,8 +18,8 @@
 package com.redhat.eagleeye.functions;
 
 import com.redhat.eagleeye.records.IpProfileAccumulator;
-import com.redhat.eagleeye.records.ClickEvent;
-import com.redhat.eagleeye.records.ClickEventStatistics;
+import com.redhat.eagleeye.records.NetworkEvent;
+import com.redhat.eagleeye.records.IpProfile;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
@@ -27,22 +27,22 @@ import org.apache.flink.util.Collector;
 import java.util.Date;
 
 /**
- * A simple {@link ProcessWindowFunction}, which wraps a count of {@link ClickEvent}s into an
- * instance of {@link ClickEventStatistics}.
+ * A simple {@link ProcessWindowFunction}, which wraps a count of {@link NetworkEvent}s into an
+ * instance of {@link IpProfile}.
  *
  **/
-public class ClickEventStatisticsCollector
-		extends ProcessWindowFunction<IpProfileAccumulator, ClickEventStatistics, String, TimeWindow> {
+public class IpProfileCollector
+		extends ProcessWindowFunction<IpProfileAccumulator, IpProfile, String, TimeWindow> {
 
 	@Override
 	public void process(
 			final String ip,
 			final Context context,
 			final Iterable<IpProfileAccumulator> elements,
-			final Collector<ClickEventStatistics> out) throws Exception {
+			final Collector<IpProfile> out) throws Exception {
 
 		IpProfileAccumulator profile = elements.iterator().next();
 
-		out.collect(new ClickEventStatistics(new Date(context.window().getStart()), new Date(context.window().getEnd()), ip, profile.getTotalBytes(),profile.getRequestCount(),profile.getFileCount()));
+		out.collect(new IpProfile(new Date(context.window().getStart()), new Date(context.window().getEnd()), ip, profile.getTotalBytes(),profile.getRequestCount(),profile.getFileCount()));
 	}
 }

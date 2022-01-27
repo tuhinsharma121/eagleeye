@@ -18,7 +18,7 @@
 
 package com.redhat.eagleeye.functions;
 
-import com.redhat.eagleeye.records.ClickEvent;
+import com.redhat.eagleeye.records.NetworkEvent;
 import org.apache.flink.api.common.functions.MapFunction;
 
 import java.time.LocalTime;
@@ -28,14 +28,14 @@ import java.time.LocalTime;
  * E.g., from 10:12:00 to 10:12:59 it will only process 10 events/sec,
  * but from 10:13:00 to 10:13:59 events will pass through unimpeded.
  */
-public class BackpressureMap implements MapFunction<ClickEvent, ClickEvent> {
+public class BackpressureMap implements MapFunction<NetworkEvent, NetworkEvent> {
 
 	private boolean causeBackpressure() {
 		return ((LocalTime.now().getMinute() % 2) == 0);
 	}
 
 	@Override
-	public ClickEvent map(ClickEvent event) throws Exception {
+	public NetworkEvent map(NetworkEvent event) throws Exception {
 		if (causeBackpressure()) {
 			Thread.sleep(100);
 		}

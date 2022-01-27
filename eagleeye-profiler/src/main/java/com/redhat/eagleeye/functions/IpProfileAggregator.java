@@ -18,21 +18,21 @@
 package com.redhat.eagleeye.functions;
 
 import com.redhat.eagleeye.records.IpProfileAccumulator;
-import com.redhat.eagleeye.records.ClickEvent;
+import com.redhat.eagleeye.records.NetworkEvent;
 import org.apache.flink.api.common.functions.AggregateFunction;
 
 /**
- * An {@link AggregateFunction} which simply counts {@link ClickEvent}s.
+ * An {@link AggregateFunction} which simply counts {@link NetworkEvent}s.
  *
  */
-public class CountingAggregator implements AggregateFunction<ClickEvent, IpProfileAccumulator, IpProfileAccumulator> {
+public class IpProfileAggregator implements AggregateFunction<NetworkEvent, IpProfileAccumulator, IpProfileAccumulator> {
 	@Override
 	public IpProfileAccumulator createAccumulator() {
 		return new IpProfileAccumulator(0L,0L,0L);
 	}
 
 	@Override
-	public IpProfileAccumulator add(final ClickEvent value, final IpProfileAccumulator accumulator) {
+	public IpProfileAccumulator add(final NetworkEvent value, final IpProfileAccumulator accumulator) {
 		Long requestCount = accumulator.getRequestCount()+1;
 		Long totalBytes = accumulator.getTotalBytes()+ value.getBytes();
 		long isFile = value.getIsFile() ? 1L : 0L;

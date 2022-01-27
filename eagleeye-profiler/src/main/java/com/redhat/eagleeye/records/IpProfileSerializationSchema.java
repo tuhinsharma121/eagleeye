@@ -17,35 +17,40 @@
 
 package com.redhat.eagleeye.records;
 
-import org.apache.flink.api.common.serialization.DeserializationSchema;
-import org.apache.flink.api.common.typeinfo.TypeInformation;
 
+import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
+
+import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import javax.annotation.Nullable;
 
 /**
- * A Kafka {@link DeserializationSchema} to deserialize {@link ClickEvent}s from JSON.
+ * A Kafka {@link KafkaSerializationSchema} to serialize {@link IpProfile}s as JSON.
  *
  */
-public class ClickEventDeserializationSchema implements DeserializationSchema<ClickEvent> {
-
-	private static final long serialVersionUID = 1L;
+public class IpProfileSerializationSchema implements KafkaSerializationSchema<IpProfile> {
 
 	private static final ObjectMapper objectMapper = new ObjectMapper();
+	private String topic;
 
-	@Override
-	public ClickEvent deserialize(byte[] message) throws IOException {
-		return objectMapper.readValue(message, ClickEvent.class);
+	public IpProfileSerializationSchema(){
+	}
+
+	public IpProfileSerializationSchema(String topic) {
+		this.topic = topic;
 	}
 
 	@Override
-	public boolean isEndOfStream(ClickEvent nextElement) {
-		return false;
-	}
-
-	@Override
-	public TypeInformation<ClickEvent> getProducedType() {
-		return TypeInformation.of(ClickEvent.class);
+	public ProducerRecord<byte[], byte[]> serialize(
+			final IpProfile message, @Nullable final Long timestamp) {
+		try {
+			//if topic is null, default topic will be used
+			return new ProducerRecord<>(topic, objectMapper.writeValueAsBytes(message));
+		} catch (JsonProcessingException e) {
+			throw new IllegalArgumentException("Could not serialize record: " + message, e);
+		}
 	}
 }

@@ -22,9 +22,9 @@ import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.annotation.JsonFor
 import java.util.*;
 
 /**
- * A small wrapper class for windowed page counts.
+ * A small wrapper class for windowed IpProfile.
  */
-public class ClickEventStatistics {
+public class IpProfile {
 
     //using java.util.Date for better readability
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
@@ -39,10 +39,10 @@ public class ClickEventStatistics {
     private String threatLevel;
 
 
-    public ClickEventStatistics() {
+    public IpProfile() {
     }
 
-    public ClickEventStatistics(
+    public IpProfile(
             final Date windowStart,
             final Date windowEnd,
             final String ip,
@@ -133,7 +133,7 @@ public class ClickEventStatistics {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final ClickEventStatistics that = (ClickEventStatistics) o;
+        final IpProfile that = (IpProfile) o;
         return
                 Objects.equals(windowStart, that.windowStart) &&
                         Objects.equals(windowEnd, that.windowEnd) &&

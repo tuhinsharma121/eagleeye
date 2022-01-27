@@ -23,9 +23,9 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * A simple event recording a click on a {@link ClickEvent#bytes} at time {@link ClickEvent#eventTimestamp}.
+ * A simple event recording an interaction from an {@link NetworkEvent#ip} at time {@link NetworkEvent#eventTimestamp}.
  */
-public class ClickEvent {
+public class NetworkEvent {
 
     //using java.util.Date for better readability
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
@@ -41,10 +41,10 @@ public class ClickEvent {
     private String minute;
     private String second;
 
-    public ClickEvent() {
+    public NetworkEvent() {
     }
 
-    public ClickEvent(final Date timestamp, String ip, String isFile, final String bytes, final String stateCode, String year, String month, String day, String hour, String minute, String second) {
+    public NetworkEvent(final Date timestamp, String ip, String isFile, final String bytes, final String stateCode, String year, String month, String day, String hour, String minute, String second) {
         this.eventTimestamp = timestamp;
         this.ip = ip;
         this.isFile = Boolean.parseBoolean(isFile);
@@ -90,7 +90,7 @@ public class ClickEvent {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final ClickEvent that = (ClickEvent) o;
+        final NetworkEvent that = (NetworkEvent) o;
         return Objects.equals(eventTimestamp, that.eventTimestamp) && Objects.equals(bytes, that.bytes);
     }
 

@@ -11,7 +11,7 @@ FROM flink:1.13.1-scala_2.12-java8
 WORKDIR /opt/flink/bin
 
 # Copy Click Count Job
-COPY --from=builder /opt/eagleeye-profiler/target/eagleeye-profiler-*.jar /opt/ClickCountJob.jar
+COPY --from=builder /opt/eagleeye-profiler/target/eagleeye-profiler-*.jar /opt/eagleeye-profiler.jar
 
 ADD ./eagleeye-profiler/deployment_config/scripts/entrypoint_flink_submit.sh /bin/entrypoint.sh
 RUN chmod +x /bin/entrypoint.sh

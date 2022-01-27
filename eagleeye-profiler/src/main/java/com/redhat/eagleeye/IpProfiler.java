@@ -17,16 +17,16 @@
 
 package com.redhat.eagleeye;
 
-import com.redhat.eagleeye.functions.CountingAggregator;
-import com.redhat.eagleeye.records.ClickEventStatistics;
-import com.redhat.eagleeye.records.ClickEventStatisticsSerializationSchema;
-import com.redhat.eagleeye.records.ClickEvent;
-import com.redhat.eagleeye.records.ClickEventDeserializationSchema;
+import com.redhat.eagleeye.functions.IpProfileAggregator;
+import com.redhat.eagleeye.records.IpProfile;
+import com.redhat.eagleeye.records.IpProfileSerializationSchema;
+import com.redhat.eagleeye.records.NetworkEvent;
+import com.redhat.eagleeye.records.NetworkEventDeserializationSchema;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import com.redhat.eagleeye.functions.BackpressureMap;
-import com.redhat.eagleeye.functions.ClickEventStatisticsCollector;
+import com.redhat.eagleeye.functions.IpProfileCollector;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
@@ -45,8 +45,8 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
- * A simple streaming job reading {@link ClickEvent}s from Kafka, counting events per 15 seconds and
- * writing the resulting {@link ClickEventStatistics} back to Kafka.
+ * A simple streaming job reading {@link NetworkEvent}s from Kafka, aggregaring events per 15 seconds and
+ * writing the resulting {@link IpProfile} back to Kafka.
  *
  * <p> It can be run with or without checkpointing and with event time or processing time semantics.
  * </p>
@@ -55,17 +55,17 @@ import java.util.concurrent.TimeUnit;
  * * "--checkpointing": enables checkpointing
  * * "--event-time": use an event time window assigner
  * * "--backpressure": insert an operator that causes periodic backpressure
- * * "--input-topic": the name of the Kafka Topic to consume {@link ClickEvent}s from
- * * "--output-topic": the name of the Kafka Topic to produce {@link ClickEventStatistics} to
+ * * "--input-topic": the name of the Kafka Topic to consume {@link NetworkEvent}s from
+ * * "--output-topic": the name of the Kafka Topic to produce {@link IpProfile} to
  * * "--bootstrap.servers": comma-separated list of Kafka brokers
  */
-public class ClickEventCount {
+public class IpProfiler {
 
     public static final String CHECKPOINTING_OPTION = "checkpointing";
     public static final String EVENT_TIME_OPTION = "event-time";
     public static final String BACKPRESSURE_OPTION = "backpressure";
     public static final String OPERATOR_CHAINING_OPTION = "chaining";
-    private static final Logger logger = LoggerFactory.getLogger(ClickEvent.class);
+    private static final Logger logger = LoggerFactory.getLogger(NetworkEvent.class);
 
     public static final Time WINDOW_SIZE = Time.of(15, TimeUnit.SECONDS);
 
@@ -90,22 +90,22 @@ public class ClickEventCount {
         kafkaProps.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers);
         kafkaProps.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "click-event-count");
 
-        KafkaSource<ClickEvent> source = KafkaSource.<ClickEvent>builder()
+        KafkaSource<NetworkEvent> source = KafkaSource.<NetworkEvent>builder()
                 .setTopics(inputTopic)
-                .setValueOnlyDeserializer(new ClickEventDeserializationSchema())
+                .setValueOnlyDeserializer(new NetworkEventDeserializationSchema())
                 .setProperties(kafkaProps)
                 .build();
 
-        WatermarkStrategy<ClickEvent> watermarkStrategy = WatermarkStrategy
-                .<ClickEvent>forBoundedOutOfOrderness(Duration.ofMillis(200))
+        WatermarkStrategy<NetworkEvent> watermarkStrategy = WatermarkStrategy
+                .<NetworkEvent>forBoundedOutOfOrderness(Duration.ofMillis(200))
                 .withTimestampAssigner((clickEvent, l) -> clickEvent.getEventTimestamp().getTime());
 
-        DataStream<ClickEvent> clicks = env.fromSource(source, watermarkStrategy, "ClickEvent Source");
+        DataStream<NetworkEvent> clicks = env.fromSource(source, watermarkStrategy, "ClickEvent Source");
 
         if (inflictBackpressure) {
             // Force a network shuffle so that the backpressure will affect the buffer pools
             clicks = clicks
-                    .keyBy(ClickEvent::getIp)
+                    .keyBy(NetworkEvent::getIp)
                     .map(new BackpressureMap())
                     .name("Backpressure");
         }
@@ -114,24 +114,22 @@ public class ClickEventCount {
                 TumblingEventTimeWindows.of(WINDOW_SIZE) :
                 TumblingProcessingTimeWindows.of(WINDOW_SIZE);
 
-        DataStream<ClickEventStatistics> statistics = clicks
-                .keyBy(ClickEvent::getIp)
+        DataStream<IpProfile> statistics = clicks
+                .keyBy(NetworkEvent::getIp)
                 .window(assigner)
-                .aggregate(new CountingAggregator(),
-                        new ClickEventStatisticsCollector())
-                .name("ClickEvent Counter");
-
-        statistics.print();
-
+                .aggregate(new IpProfileAggregator(),
+                        new IpProfileCollector())
+                .name("IpProfile Aggregator");
+        
         statistics
                 .addSink(new FlinkKafkaProducer<>(
                         outputTopic,
-                        new ClickEventStatisticsSerializationSchema(outputTopic),
+                        new IpProfileSerializationSchema(outputTopic),
                         kafkaProps,
                         FlinkKafkaProducer.Semantic.AT_LEAST_ONCE))
-                .name("ClickEventStatistics Sink");
+                .name("IpProfile Sink");
 
-        env.execute("Click Event Count");
+        env.execute("Network Event Profiler");
     }
 
     private static void configureEnvironment(
