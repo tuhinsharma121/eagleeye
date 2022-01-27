@@ -11,9 +11,6 @@ RUN pip install snowflake-sqlalchemy==1.2.5
 RUN pip install sqlalchemy-redshift==0.8.4
 RUN pip install psycopg2==2.9.1
 
-COPY ./eagleeye-profiler/deployment_config/superset/assets/superset-logo-horiz.png /app/superset/static/assets/images/superset-logo-horiz.png
-COPY ./eagleeye-profiler/deployment_config/superset/assets/favicon.png /app/superset/static/assets/images/favicon.png
-
 # Switching back to using the `superset` user
 USER superset
 
