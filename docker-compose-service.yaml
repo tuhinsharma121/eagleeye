@@ -4,7 +4,7 @@ services:
     image: zookeeper:3.7.0
     hostname: zookeeper
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     ports:
       - "2181:2181"
     environment:
@@ -12,8 +12,8 @@ services:
       ZOO_PORT: 2181
       ZOO_SERVERS: server.1=zookeeper:2888:3888;2181
     volumes:
-      - ./hawkeye-demo/zookeeper/data:/data
-      - ./hawkeye-demo/zookeeper/datalog:/datalog
+      - ./eagleeye-conf/zookeeper/data:/data
+      - ./eagleeye-conf/zookeeper/datalog:/datalog
     healthcheck:
       test: [ "CMD-SHELL", "echo ruok | nc -w 2 zookeeper 4444" ]
       interval: 5s
@@ -23,7 +23,7 @@ services:
     image: qnib/plain-zkui:latest
     hostname: zkui
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     ports:
       - "9090:9090"
     environment:
@@ -34,7 +34,7 @@ services:
     image: wurstmeister/kafka:2.13-2.7.0
     hostname: kafka
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     ports:
       - "9092:9092"
     environment:
@@ -43,7 +43,7 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: "kafka"
       KAFKA_CREATE_TOPICS: "networkeventtopic:1:1,ipprofiletopic:1:1"
     volumes:
-      - ./hawkeye-demo/kafka/data:/var/lib/kafka/data
+      - ./eagleeye-conf/kafka/data:/var/lib/kafka/data
     depends_on:
       - zookeeper
     healthcheck:
@@ -55,7 +55,7 @@ services:
     image: obsidiandynamics/kafdrop:3.27.0
     hostname: kafdrop
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     ports:
       - "9999:9000"
     environment:
@@ -72,9 +72,9 @@ services:
     entrypoint:
       - /bin/entrypoint.sh
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     volumes:
-      - ./hawkeye-demo/pinot/controller:/tmp/data/controller
+      - ./eagleeye-conf/pinot/controller:/tmp/data/controller
     ports:
       - "9000:9000"
     depends_on:
@@ -88,7 +88,7 @@ services:
     entrypoint:
       - /bin/entrypoint.sh
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     ports:
       - "8099:8099"
     depends_on:
@@ -104,9 +104,9 @@ services:
     entrypoint:
       - /bin/entrypoint.sh
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     volumes:
-      - ./hawkeye-demo/pinot/server:/tmp/data/server
+      - ./eagleeye-conf/pinot/server:/tmp/data/server
     ports:
       - "8098:8098"
     depends_on:
@@ -118,13 +118,13 @@ services:
       context: ""
       dockerfile: eagleeye-profiler/dockerfile/superset.dockerfile
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     ports:
       - "8088:8088"
   jobmanager:
     image: flink:1.13.1-scala_2.12-java8
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     command: "jobmanager.sh start-foreground"
     ports:
       - 8081:8081
@@ -137,7 +137,7 @@ services:
   taskmanager:
     image: flink:1.13.1-scala_2.12-java8
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     depends_on:
       - jobmanager
     command: "taskmanager.sh start-foreground"
@@ -150,6 +150,6 @@ services:
 
 
 networks:
-  hawkeye-nw:
+  eagleeye-nw:
     driver: bridge
-    name: hawkeye-nw
+    name: eagleeye-nw

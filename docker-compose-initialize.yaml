@@ -8,9 +8,8 @@ services:
     entrypoint:
       - /bin/entrypoint.sh
     networks:
-      - hawkeye-nw
-
+      - eagleeye-nw
 networks:
-  hawkeye-nw:
+  eagleeye-nw:
     external: true
-    name: hawkeye-nw
+    name: eagleeye-nw

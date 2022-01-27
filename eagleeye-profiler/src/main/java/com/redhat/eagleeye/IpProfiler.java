@@ -71,10 +71,6 @@ public class IpProfiler {
 
     public static void main(String[] args) throws Exception {
 
-        logger.debug("debug################################");
-        logger.info("info################################");
-        logger.error("error################################");
-
         final ParameterTool params = ParameterTool.fromArgs(args);
 
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -88,7 +84,7 @@ public class IpProfiler {
         String brokers = params.get("bootstrap.servers", "kafka:9092");
         Properties kafkaProps = new Properties();
         kafkaProps.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers);
-        kafkaProps.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "click-event-count");
+        kafkaProps.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "network-event-profile");
 
         KafkaSource<NetworkEvent> source = KafkaSource.<NetworkEvent>builder()
                 .setTopics(inputTopic)
@@ -100,11 +96,11 @@ public class IpProfiler {
                 .<NetworkEvent>forBoundedOutOfOrderness(Duration.ofMillis(200))
                 .withTimestampAssigner((clickEvent, l) -> clickEvent.getEventTimestamp().getTime());
 
-        DataStream<NetworkEvent> clicks = env.fromSource(source, watermarkStrategy, "ClickEvent Source");
+        DataStream<NetworkEvent> events = env.fromSource(source, watermarkStrategy, "NetworkEvent Source");
 
         if (inflictBackpressure) {
             // Force a network shuffle so that the backpressure will affect the buffer pools
-            clicks = clicks
+            events = events
                     .keyBy(NetworkEvent::getIp)
                     .map(new BackpressureMap())
                     .name("Backpressure");
@@ -114,13 +110,13 @@ public class IpProfiler {
                 TumblingEventTimeWindows.of(WINDOW_SIZE) :
                 TumblingProcessingTimeWindows.of(WINDOW_SIZE);
 
-        DataStream<IpProfile> statistics = clicks
+        DataStream<IpProfile> statistics = events
                 .keyBy(NetworkEvent::getIp)
                 .window(assigner)
                 .aggregate(new IpProfileAggregator(),
                         new IpProfileCollector())
                 .name("IpProfile Aggregator");
-        
+
         statistics
                 .addSink(new FlinkKafkaProducer<>(
                         outputTopic,

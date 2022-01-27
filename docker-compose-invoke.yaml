@@ -4,17 +4,17 @@ services:
     build:
       context: ""
       dockerfile: eagleeye-profiler/dockerfile/event_generator.dockerfile
-    hostname: hawkeye-gen
+    hostname: eagleeye-gen
     networks:
-      - hawkeye-nw
-    command: python /visit_generator.py
+      - eagleeye-nw
+    command: python /network_event_generator.py
   flink-submit-job:
     build:
       context: ""
       dockerfile: eagleeye-profiler/dockerfile/flink_submit.dockerfile
     image: flink_submit:latest
     networks:
-      - hawkeye-nw
+      - eagleeye-nw
     entrypoint:
       - /bin/entrypoint.sh
     volumes:
@@ -22,6 +22,6 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
 networks:
-  hawkeye-nw:
+  eagleeye-nw:
     external: true
-    name: hawkeye-nw
+    name: eagleeye-nw

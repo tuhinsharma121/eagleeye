@@ -131,6 +131,6 @@ dmypy.json
 .DS_Store
 .idea/
 hawkeye-demo
-eagleeye-demo
+eagleeye-conf
 .bsp/
 *.iml
