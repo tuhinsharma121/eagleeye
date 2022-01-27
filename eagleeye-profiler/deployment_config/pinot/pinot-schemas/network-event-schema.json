@@ -1,0 +1,54 @@
+{
+  "schemaName": "networkEventSchema",
+  "dimensionFieldSpecs": [
+    {
+      "name": "ip",
+      "dataType": "STRING"
+    },
+    {
+      "name": "isFile",
+      "dataType": "STRING"
+    },
+    {
+      "name": "stateCode",
+      "dataType": "STRING"
+    },
+    {
+      "name": "bytes",
+      "dataType": "STRING"
+    },
+    {
+      "name": "year",
+      "dataType": "STRING"
+    },
+    {
+      "name": "month",
+      "dataType": "STRING"
+    },
+    {
+      "name": "day",
+      "dataType": "STRING"
+    },
+    {
+      "name": "hour",
+      "dataType": "STRING"
+    },
+    {
+      "name": "minute",
+      "dataType": "STRING"
+    },
+    {
+      "name": "second",
+      "dataType": "STRING"
+    }
+  ],
+  "metricFieldSpecs": [],
+  "dateTimeFieldSpecs": [
+    {
+      "name": "eventTimestamp",
+      "dataType": "STRING",
+      "format": "1:SECONDS:SIMPLE_DATE_FORMAT:dd-MM-yyyy hh:mm:ss",
+      "granularity": "1:SECONDS"
+    }
+  ]
+}
