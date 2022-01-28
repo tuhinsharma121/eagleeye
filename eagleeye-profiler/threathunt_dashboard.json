@@ -1,0 +1,666 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": "",
+                "dashboard_title": "Threat Hunt Dashboard",
+                "description": null,
+                "json_metadata": "{\"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"refresh_frequency\": 0, \"default_filters\": \"{}\", \"color_scheme\": null, \"remote_id\": 2, \"import_time\": 1643282325}",
+                "position_json": "{\"CHART-C_nnjiBf4R\":{\"children\":[],\"id\":\"CHART-C_nnjiBf4R\",\"meta\":{\"chartId\":7,\"height\":51,\"sliceName\":\"IP profile\",\"uuid\":\"d3ea5d00-9d2c-40b6-80e4-57a57a82527c\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-b7hUCvafe\",\"ROW-xB2S2G5ViF\"],\"type\":\"CHART\"},\"CHART-E9xPr-gj8Q\":{\"children\":[],\"id\":\"CHART-E9xPr-gj8Q\",\"meta\":{\"chartId\":1,\"height\":52,\"sliceName\":\"Network Traffic per second\",\"uuid\":\"f1dcbe31-9f65-433d-ab4b-58e4216de172\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\",\"ROW-GsycChKGl3\"],\"type\":\"CHART\"},\"CHART-K6i1z972Ma\":{\"children\":[],\"id\":\"CHART-K6i1z972Ma\",\"meta\":{\"chartId\":8,\"height\":52,\"sliceName\":\"Total Files sent over network\",\"uuid\":\"e3c8cb28-c073-442c-ac90-103400b8baf4\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\",\"ROW-GsycChKGl3\"],\"type\":\"CHART\"},\"CHART-LMKuLteMwr\":{\"children\":[],\"id\":\"CHART-LMKuLteMwr\",\"meta\":{\"chartId\":3,\"height\":51,\"sliceName\":\"Geo Distribution of network traffic\",\"uuid\":\"e7bf0947-f324-4d03-a318-8655d5861b69\",\"width\":7},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\",\"ROW-sAufFIjVZ\"],\"type\":\"CHART\"},\"CHART-aMwhbvZSwq\":{\"children\":[],\"id\":\"CHART-aMwhbvZSwq\",\"meta\":{\"chartId\":4,\"height\":50,\"sliceName\":\"IP threat Distribution over time\",\"uuid\":\"e2c8e52c-e1e7-423c-b927-ef3379c170a6\",\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-b7hUCvafe\",\"ROW-6k4CZ7FDQm\"],\"type\":\"CHART\"},\"CHART-eOAfNCSprg\":{\"children\":[],\"id\":\"CHART-eOAfNCSprg\",\"meta\":{\"chartId\":5,\"height\":52,\"sliceName\":\"Total Network Events\",\"uuid\":\"dabdfe76-7f45-4213-a080-26f6ceaccce8\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\",\"ROW-GsycChKGl3\"],\"type\":\"CHART\"},\"CHART-hrKCW6BQBV\":{\"children\":[],\"id\":\"CHART-hrKCW6BQBV\",\"meta\":{\"chartId\":9,\"height\":51,\"sliceName\":\"IP Profile Count\",\"uuid\":\"5d0bc6af-5ad1-424e-9d85-59707ef822b6\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-b7hUCvafe\",\"ROW-xB2S2G5ViF\"],\"type\":\"CHART\"},\"CHART-nFdZ6rjeAU\":{\"children\":[],\"id\":\"CHART-nFdZ6rjeAU\",\"meta\":{\"chartId\":2,\"height\":51,\"sliceName\":\"Raw Network Events\",\"uuid\":\"880ac5c9-2029-45d7-87e1-4f346b02f650\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\",\"ROW-sAufFIjVZ\"],\"type\":\"CHART\"},\"CHART-sYGYu5BuNl\":{\"children\":[],\"id\":\"CHART-sYGYu5BuNl\",\"meta\":{\"chartId\":6,\"height\":52,\"sliceName\":\"Number of Files exchanged per second\",\"uuid\":\"59d24ec0-90f0-4432-849e-6de584c0ebf2\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\",\"ROW-GsycChKGl3\"],\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"DIVIDER-KncwUp6lEd\":{\"children\":[],\"id\":\"DIVIDER-KncwUp6lEd\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\"],\"type\":\"DIVIDER\"},\"GRID_ID\":{\"children\":[\"TABS-5d_tnNGQFR\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Threat Hunt Dashboard\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-6k4CZ7FDQm\":{\"children\":[\"CHART-aMwhbvZSwq\"],\"id\":\"ROW-6k4CZ7FDQm\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-b7hUCvafe\"],\"type\":\"ROW\"},\"ROW-GsycChKGl3\":{\"children\":[\"CHART-eOAfNCSprg\",\"CHART-E9xPr-gj8Q\",\"CHART-K6i1z972Ma\",\"CHART-sYGYu5BuNl\"],\"id\":\"ROW-GsycChKGl3\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\"],\"type\":\"ROW\"},\"ROW-sAufFIjVZ\":{\"children\":[\"CHART-nFdZ6rjeAU\",\"CHART-LMKuLteMwr\"],\"id\":\"ROW-sAufFIjVZ\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-Y32vi5z7Wu\"],\"type\":\"ROW\"},\"ROW-xB2S2G5ViF\":{\"children\":[\"CHART-hrKCW6BQBV\",\"CHART-C_nnjiBf4R\"],\"id\":\"ROW-xB2S2G5ViF\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\",\"TAB-b7hUCvafe\"],\"type\":\"ROW\"},\"TAB-Y32vi5z7Wu\":{\"children\":[\"ROW-GsycChKGl3\",\"DIVIDER-KncwUp6lEd\",\"ROW-sAufFIjVZ\"],\"id\":\"TAB-Y32vi5z7Wu\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Raw Network traffic\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\"],\"type\":\"TAB\"},\"TAB-b7hUCvafe\":{\"children\":[\"ROW-xB2S2G5ViF\",\"ROW-6k4CZ7FDQm\"],\"id\":\"TAB-b7hUCvafe\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Aggregated network data\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5d_tnNGQFR\"],\"type\":\"TAB\"},\"TABS-5d_tnNGQFR\":{\"children\":[\"TAB-Y32vi5z7Wu\",\"TAB-b7hUCvafe\"],\"id\":\"TABS-5d_tnNGQFR\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "networkEventSchema.networkEventTable",
+                            "datasource_type": "table",
+                            "id": 1,
+                            "params": "{\"adhoc_filters\": [], \"color_picker\": {\"a\": 1, \"b\": 135, \"g\": 122, \"r\": 0}, \"datasource\": \"2__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"eventTimestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"rolling_type\": \"None\", \"show_trend_line\": true, \"slice_id\": 1, \"start_y_axis_at_zero\": true, \"subheader_font_size\": 0.15, \"time_format\": \"%d-%m-%Y %H:%M:%S\", \"time_grain_sqla\": \"PT1S\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 1, \"datasource_name\": \"networkEventTable\", \"schema\": \"networkEventSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":2,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"eventTimestamp\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"PT1S\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Network Traffic per second",
+                            "viz_type": "big_number"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "networkEventSchema.networkEventTable",
+                            "datasource_type": "table",
+                            "id": 2,
+                            "params": "{\"adhoc_filters\": [], \"all_columns\": [\"eventTimestamp\", \"ip\", \"stateCode\", \"isFile\", \"bytes\"], \"color_pn\": true, \"datasource\": \"2__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"eventTimestamp\", \"groupby\": [], \"metrics\": [\"count\"], \"order_by_cols\": [], \"order_desc\": true, \"percent_metrics\": [], \"query_mode\": \"raw\", \"row_limit\": 50, \"server_page_length\": 10, \"show_cell_bars\": true, \"table_timestamp_format\": \"smart_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"table\", \"remote_id\": 2, \"datasource_name\": \"networkEventTable\", \"schema\": \"networkEventSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":2,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"eventTimestamp\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"eventTimestamp\",\"ip\",\"stateCode\",\"isFile\",\"bytes\"],\"orderby\":[],\"annotation_layers\":[],\"row_limit\":50,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"post_processing\":[]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Raw Network Events",
+                            "viz_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "networkEventSchema.networkEventTable",
+                            "datasource_type": "table",
+                            "id": 3,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"2__table\", \"entity\": \"stateCode\", \"extra_form_data\": {}, \"granularity_sqla\": \"eventTimestamp\", \"linear_color_scheme\": \"schemeRdYlBu\", \"metric\": \"count\", \"number_format\": \"SMART_NUMBER\", \"select_country\": \"usa\", \"slice_id\": 3, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"country_map\", \"remote_id\": 3, \"datasource_name\": \"networkEventTable\", \"schema\": \"networkEventSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":2,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"eventTimestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Geo Distribution of network traffic",
+                            "viz_type": "country_map"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "ipProfileSchema.ipProfileTable",
+                            "datasource_type": "table",
+                            "id": 4,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"echarts4Colors\", \"comparison_type\": \"values\", \"datasource\": \"1__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"windowStart\", \"groupby\": [\"threatLevel\"], \"label_colors\": {}, \"left_margin\": \"auto\", \"limit\": 100, \"line_interpolation\": \"linear\", \"metrics\": [\"count\"], \"order_desc\": true, \"rich_tooltip\": true, \"rolling_type\": \"None\", \"row_limit\": 10000, \"show_bar_value\": true, \"show_brush\": \"auto\", \"show_controls\": false, \"show_legend\": false, \"slice_id\": 4, \"time_grain_sqla\": \"PT1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"bar\", \"x_axis_format\": \"smart_date\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 4, \"datasource_name\": \"ipProfileTable\", \"schema\": \"ipProfileSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":1,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"windowStart\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"PT1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"threatLevel\"],\"metrics\":[\"count\"],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":100,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "IP threat Distribution over time",
+                            "viz_type": "bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "networkEventSchema.networkEventTable",
+                            "datasource_type": "table",
+                            "id": 5,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"2__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"eventTimestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 5, \"datasource_name\": \"networkEventTable\", \"schema\": \"networkEventSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":2,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"eventTimestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Total Network Events",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "networkEventSchema.networkEventTable",
+                            "datasource_type": "table",
+                            "id": 6,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"true\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_nwmbsxyn31_ef60nbsbbwo\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"operatorId\": \"EQUALS\", \"sqlExpression\": null, \"subject\": \"isFile\"}], \"color_picker\": {\"a\": 1, \"b\": 135, \"g\": 122, \"r\": 0}, \"datasource\": \"2__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"eventTimestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"rolling_type\": \"None\", \"show_trend_line\": true, \"start_y_axis_at_zero\": true, \"subheader_font_size\": 0.15, \"time_format\": \"%d-%m-%Y %H:%M:%S\", \"time_grain_sqla\": \"PT1S\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 6, \"datasource_name\": \"networkEventTable\", \"schema\": \"networkEventSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":2,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"eventTimestamp\",\"filters\":[{\"col\":\"isFile\",\"op\":\"==\",\"val\":\"true\"}],\"extras\":{\"time_grain_sqla\":\"PT1S\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Files exchanged per second",
+                            "viz_type": "big_number"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "ipProfileSchema.ipProfileTable",
+                            "datasource_type": "table",
+                            "id": 7,
+                            "params": "{\"adhoc_filters\": [], \"all_columns\": [\"windowStart\", \"windowEnd\", \"ip\", \"numRequestSent\", \"numBytesSent\", \"numFilesSent\", \"threatLevel\"], \"color_pn\": true, \"datasource\": \"1__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"windowStart\", \"groupby\": [], \"order_by_cols\": [], \"order_desc\": true, \"percent_metrics\": [], \"query_mode\": \"raw\", \"row_limit\": 50, \"server_page_length\": 10, \"show_cell_bars\": true, \"table_timestamp_format\": \"smart_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"table\", \"remote_id\": 7, \"datasource_name\": \"ipProfileTable\", \"schema\": \"ipProfileSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":1,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"windowStart\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"windowStart\",\"windowEnd\",\"ip\",\"numRequestSent\",\"numBytesSent\",\"numFilesSent\",\"threatLevel\"],\"orderby\":[],\"annotation_layers\":[],\"row_limit\":50,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"post_processing\":[]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "IP profile",
+                            "viz_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "networkEventSchema.networkEventTable",
+                            "datasource_type": "table",
+                            "id": 8,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"true\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_ynn7plc9lfm_kkcitrv0ydo\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"operatorId\": \"EQUALS\", \"sqlExpression\": null, \"subject\": \"isFile\"}], \"datasource\": \"2__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"eventTimestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 8, \"datasource_name\": \"networkEventTable\", \"schema\": \"networkEventSchema\", \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                            "query_context": "{\"datasource\":{\"id\":2,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"eventTimestamp\",\"filters\":[{\"col\":\"isFile\",\"op\":\"==\",\"val\":\"true\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Total Files sent over network",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "ipProfileSchema.ipProfileTable",
+                            "datasource_type": "table",
+                            "id": 9,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"1__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"windowStart\", \"header_font_size\": 0.4, \"metric\": \"count\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 9, \"datasource_name\": \"ipProfileTable\", \"schema\": \"ipProfileSchema\", \"database_name\": \"Apache Pinot\"}",
+                            "query_context": "{\"datasource\":{\"id\":1,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"windowStart\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "IP Profile Count",
+                            "viz_type": "big_number_total"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "ip",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 1,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 1,
+                            "type": "STRING",
+                            "uuid": "0a2ef2db-4845-48d9-9c50-3d45350d93dc",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "numRequestSent",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 2,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 1,
+                            "type": "LONG",
+                            "uuid": "6074d7bd-b070-4351-be4c-56dbd9a0ea3e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "numBytesSent",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 3,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 1,
+                            "type": "LONG",
+                            "uuid": "b8b57329-3da7-42f0-a871-2d268e11e213",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "numFilesSent",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 4,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 1,
+                            "type": "LONG",
+                            "uuid": "91aa53bf-06f1-4b77-a242-27c9cae0e2b1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "threatLevel",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 5,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 1,
+                            "type": "STRING",
+                            "uuid": "bc0ed4e7-1531-47dc-a2f6-ea9c03f6ffbf",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "windowStart",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 6,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": "%d-%m-%Y %H:%M:%S",
+                            "table_id": 1,
+                            "type": "STRING",
+                            "uuid": "e39aaba1-1f61-4942-b06e-196f1cc8e9c8",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "windowEnd",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 7,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": "%d-%m-%Y %H:%M:%S",
+                            "table_id": 1,
+                            "type": "STRING",
+                            "uuid": "55b5a5e7-def8-48a8-b67e-b333790d1f77",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": "{\"warning_markdown\":\"\"}",
+                            "id": 1,
+                            "metric_name": "count",
+                            "metric_type": null,
+                            "table_id": 1,
+                            "uuid": "a62dd486-15b9-49b1-ac43-ceb88fb30645",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 1, \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                "schema": "ipProfileSchema",
+                "sql": "",
+                "table_name": "ipProfileTable",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "ip",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 8,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "a27598ee-6c96-4c54-9030-2830e8727d22",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "isFile",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 9,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "d1f0a8fe-980d-4d8b-892a-73124a4683e5",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "stateCode",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 10,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "151e3a16-713e-4e94-a8f9-435c4040614a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "bytes",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 11,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "4324f729-7a56-4a49-a62a-cdc1189b5b12",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "year",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 12,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "fb112182-5c87-44ea-be95-8c3cff0632d0",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "month",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 13,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "a4ab4c10-e4f0-4cd1-b66e-e3d9e27fc55b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "day",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 14,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "08ad793e-f415-4650-bd16-0f2844351a03",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "hour",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 15,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "da5e3849-79e7-4256-b75c-1934024c8432",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "minute",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 16,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "df9ab7b8-29d0-4233-adc9-cc43fb8e3147",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "second",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 17,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "2cb54353-d00e-4f4b-980f-7c4a4a7c6a6b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "column_name": "eventTimestamp",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 18,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": "%d-%m-%Y %H:%M:%S",
+                            "table_id": 2,
+                            "type": "STRING",
+                            "uuid": "26cc6c31-0fda-4350-b1d8-13c141f1ef4e",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-01-27T11:18:45"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": "{\"warning_markdown\":\"\"}",
+                            "id": 2,
+                            "metric_name": "count",
+                            "metric_type": null,
+                            "table_id": 2,
+                            "uuid": "63915a4b-5747-4ff0-b603-c978837c9e6f",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 2, \"database_name\": \"Apache Pinot\", \"import_time\": 1643282325}",
+                "schema": "networkEventSchema",
+                "sql": "",
+                "table_name": "networkEventTable",
+                "template_params": null
+            }
+        }
+    ]
+}

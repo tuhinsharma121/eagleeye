@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  pinot_initializer:
+    build:
+      context: ""
+      dockerfile: eagleeye-profiler/dockerfile/pinot_initializer.dockerfile
+    image: pinot_initializer:latest
+    entrypoint:
+      - /bin/entrypoint.sh
+    networks:
+      - eagleeye-nw
+networks:
+  eagleeye-nw:
+    external: true
+    name: eagleeye-nw

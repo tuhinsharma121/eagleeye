@@ -1,0 +1,40 @@
+{
+  "schemaName": "ipProfileSchema",
+  "dimensionFieldSpecs": [
+    {
+      "name": "ip",
+      "dataType": "STRING"
+    },
+    {
+      "name": "numRequestSent",
+      "dataType": "LONG"
+    },
+    {
+      "name": "numBytesSent",
+      "dataType": "LONG"
+    },
+    {
+      "name": "numFilesSent",
+      "dataType": "LONG"
+    },
+    {
+      "name": "threatLevel",
+      "dataType": "STRING"
+    }
+  ],
+  "metricFieldSpecs": [],
+  "dateTimeFieldSpecs": [
+    {
+      "name": "windowStart",
+      "dataType": "STRING",
+      "format": "1:SECONDS:SIMPLE_DATE_FORMAT:dd-MM-yyyy hh:mm:ss",
+      "granularity": "1:SECONDS"
+    },
+    {
+      "name": "windowEnd",
+      "dataType": "STRING",
+      "format": "1:SECONDS:SIMPLE_DATE_FORMAT:dd-MM-yyyy hh:mm:ss",
+      "granularity": "1:SECONDS"
+    }
+  ]
+}
