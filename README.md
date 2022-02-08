@@ -43,3 +43,9 @@ docker-compose -f docker-compose-service.yaml down
 docker-compose -f docker-compose-initialize.yaml down
 docker-compose -f docker-compose-invoke.yaml down
 ```
+
+
+A detailed video on how to run this project can be found here:-
+
+See also [Demo](https://www.youtube.com/watch?v=OIqI72BsFw8)
+
